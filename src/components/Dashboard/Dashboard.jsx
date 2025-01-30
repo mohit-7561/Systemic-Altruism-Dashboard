@@ -40,9 +40,58 @@ const Dashboard = () => {
     fellowships: { applicants: 850, growth: 35 }
   };
 
+  // Add universal text styling to all charts
+  const baseChartOptions = {
+    title: {
+      style: {
+        color: '#ffffff',
+        fontSize: '18px',
+        fontWeight: 600,
+        fontFamily: 'Arial, sans-serif',
+        textShadow: '0 2px 4px rgba(0,0,0,0.3)'
+      }
+    },
+    xaxis: {
+      labels: {
+        style: {
+          colors: '#ffffff',
+          fontSize: '12px',
+          fontWeight: 500
+        }
+      }
+    },
+    yaxis: {
+      labels: {
+        style: {
+          colors: '#ffffff',
+          fontSize: '12px',
+          fontWeight: 500
+        }
+      }
+    },
+    dataLabels: {
+      style: {
+        colors: ['#ffffff'],
+        fontSize: '12px',
+        fontWeight: 600,
+        background: 'rgba(0,0,0,0.5)',
+        padding: '4px 8px',
+        borderRadius: '4px'
+      }
+    },
+    legend: {
+      labels: {
+        colors: '#ffffff',
+        fontSize: '12px',
+        fontWeight: 500
+      }
+    }
+  };
+
   // Updated chart configurations
   const chartOptions = {
     colleges: {
+      ...baseChartOptions,
       chart: {
         type: 'line',
         height: 300,
@@ -79,6 +128,7 @@ const Dashboard = () => {
       }
     },
     engagement: {
+      ...baseChartOptions,
       chart: {
         type: 'area',
         height: 300,
@@ -106,6 +156,7 @@ const Dashboard = () => {
       }
     },
     revenue: {
+      ...baseChartOptions,
       chart: {
         type: 'line',
         height: 300,
@@ -146,6 +197,7 @@ const Dashboard = () => {
       }
     },
     social: {
+      ...baseChartOptions,
       chart: {
         type: 'bar',
         height: 300
@@ -169,6 +221,7 @@ const Dashboard = () => {
       }
     },
     donations: {
+      ...baseChartOptions,
       chart: {
         type: 'bar',
         height: 300,
@@ -186,6 +239,7 @@ const Dashboard = () => {
       }
     },
     fellowships: {
+      ...baseChartOptions,
       chart: {
         type: 'radar',
         height: 300,
@@ -210,6 +264,7 @@ const Dashboard = () => {
       }
     },
     bar: {
+      ...baseChartOptions,
       chart: {
         background: 'transparent',
         foreColor: '#ffffff',
@@ -233,41 +288,10 @@ const Dashboard = () => {
             }]
           }
         }
-      },
-      xaxis: {
-        labels: {
-          style: {
-            colors: '#ffffff',
-            fontSize: '12px',
-          }
-        }
-      },
-      yaxis: {
-        labels: {
-          style: {
-            colors: '#ffffff',
-            fontSize: '12px',
-          }
-        }
-      },
-      dataLabels: {
-        style: {
-          colors: ['#ffffff'], // Black text for contrast
-          fontFamily: 'Arial, sans-serif',
-          fontSize: '14px',
-          fontWeight: 'bold',
-        },
-        dropShadow: {
-          enabled: true,
-          color: '#ffffff', // White shadow
-          opacity: 1,
-          blur: 0,
-          left: 1,
-          top: 1
-        }
       }
     },
     line: {
+      ...baseChartOptions,
       chart: {
         background: 'transparent',
         foreColor: '#ffffff'
@@ -277,20 +301,10 @@ const Dashboard = () => {
       },
       markers: {
         colors: ['#ffffff']
-      },
-      dataLabels: {
-        style: {
-          colors: ['#ffffff'], // White text for line charts
-          fontWeight: 'bold',
-        },
-        background: {
-          enabled: true,
-          color: 'rgba(0,0,0,0.5)',
-          borderRadius: 3
-        }
       }
     },
     pie: {
+      ...baseChartOptions,
       chart: {
         background: 'transparent',
         foreColor: '#ffffff'
