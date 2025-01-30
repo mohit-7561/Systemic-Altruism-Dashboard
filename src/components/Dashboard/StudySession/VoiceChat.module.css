@@ -1,0 +1,78 @@
+.voiceChatContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .controlButton {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .controlButton.off {
+    background: #dc3545;
+  }
+  
+  /* New styles for unmuted state */
+  .controlButton:not(.off) {
+    background: #28a745;
+    animation: pulse 2s infinite;
+  }
+  
+  .controlButton.speaking {
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5);
+  }
+  
+  .controlButton:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .controlButton.off:hover {
+    background: #c82333;
+  }
+  
+  /* Hover state for unmuted button */
+  .controlButton:not(.off):hover {
+    background: #218838;
+  }
+  
+  .audioIndicator {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  
+  .audioLevel {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #28a745;
+    transition: height 0.1s ease;
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+    }
+  } 

@@ -1,0 +1,122 @@
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.statCard:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.iconContainer {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.statInfo {
+  flex: 1;
+}
+
+.statTitle {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 0.5rem 0;
+  font-weight: 500;
+}
+
+.statValues {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.mainValue {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+}
+
+.changeValue {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.statGraph {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0.2;
+  transform: translateY(40%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.statCard:hover .statGraph {
+  opacity: 0.4;
+  transform: translateY(30%);
+}
+
+@media (max-width: 768px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .statCard {
+    padding: 1rem;
+  }
+
+  .iconContainer {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .mainValue {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation keyframes */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeIn {
+  animation: slideUp 0.3s ease-out forwards;
+} 

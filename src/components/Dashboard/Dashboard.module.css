@@ -1,0 +1,360 @@
+:root {
+  --primary-deep-blue: #0d6e63;
+  --secondary-vibrant-green: #48BB78;
+  --accent-warm-orange: #ED8936;
+  --neutral-light-gray: #F5F7FA;
+}
+
+.dashboardContainer {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #1c2a3a 0%,
+    #1a202c 100%
+  );
+  color: white;
+  z-index: 1;
+}
+
+/* Optional: Add subtle animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.mainContent {
+  flex: 1;
+  padding: 2rem;
+  transition: margin-left 0.3s ease;
+}
+
+.shifted {
+  margin-left: 280px;
+}
+
+.dashboardGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.optionsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 1rem 0;
+}
+
+.optionCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.optionIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #4ca1af;
+  height: 60px;
+  width: 60px;
+  background: rgba(76, 161, 175, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.optionCard h2 {
+  margin: 0 0 1rem;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.optionCard p {
+  margin: 0 0 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.optionButton {
+  background: linear-gradient(90deg, #4ca1af, #2c3e50);
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+}
+
+.optionButton:hover {
+  background: linear-gradient(90deg, #5ab9c9, #34495e);
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 1rem;
+    margin-left: 0;
+  }
+
+  .shifted {
+    margin-left: 0;
+  }
+
+  .optionsContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* New chart styles */
+.chartsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.chartCard {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  transition: transform 0.3s ease;
+  min-height: 400px;
+}
+
+.chartHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  color: #4ca1af;
+}
+
+.chartHeader svg {
+  font-size: 1.5rem;
+}
+
+/* Enhanced QuickStats Styles */
+.quickStatsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.statCard {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-3px);
+}
+
+.statTitle {
+  color: #ffffff !important;
+  opacity: 0.9;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.statValue {
+  color: #ffffff !important;
+  font-size: 2.2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.statTrend {
+  color: #d1d5db !important;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  min-height: 80vh;
+}
+
+.sidebar {
+  background: linear-gradient(
+    135deg,
+    var(--primary-deep-blue) 0%,
+    #0d5249 50%,
+    #08332e 100%
+  );
+  box-shadow: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 2;
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* If you have a separate header component */
+.header {
+  background: var(--primary-deep-blue);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Add contrast for any text elements */
+.metricTitle {
+  color: var(--primary-deep-blue);
+  margin-bottom: 1rem;
+}
+
+/* Ensure charts are visible */
+.apexcharts-tooltip {
+  background: #08332e !important;
+  color: white !important;
+  border: 1px solid #48BB78 !important;
+}
+
+.apexcharts-menu {
+  background: #0d5249 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.apexcharts-menu-item {
+  color: white !important;
+}
+
+/* Chart Text Enhancements */
+.apexcharts-text {
+  fill: #ffffff !important;
+  stroke: #000000 !important;
+  stroke-width: 1px !important;
+  paint-order: stroke !important;
+  font-weight: 700 !important;
+}
+
+.apexcharts-xaxis-texts text,
+.apexcharts-yaxis-texts text {
+  fill: #e5e7eb !important;
+}
+
+.apexcharts-datalabels text {
+  fill: #1f2937 !important;
+  font-weight: 600 !important;
+  filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.5));
+}
+
+.apexcharts-menu-item:hover {
+  background: #0d5249 !important;
+}
+
+/* Chart Text Specific Styling */
+.apexcharts-title-text {
+  fill: #ffffff !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.apexcharts-xaxis-label,
+.apexcharts-yaxis-label {
+  fill: #ffffff !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+.apexcharts-legend-text {
+  color: #ffffff !important;
+  font-size: 14px !important;
+}
+
+.apexcharts-datalabel {
+  font-weight: 700 !important;
+  fill: #ffffff !important;
+  paint-order: stroke;
+  stroke: #000000;
+  stroke-width: 2px;
+}
+
+.apexcharts-tooltip-title {
+  background: #0d5249 !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.apexcharts-tooltip-series-group {
+  background: #08332e !important;
+  color: #ffffff !important;
+  padding: 0 10px !important;
+}
+
+.apexcharts-menu-icon {
+  filter: invert(1) brightness(2);
+}
+
+.apexcharts-xaxis-label text,
+.apexcharts-yaxis-label text {
+  font-size: 12px !important;
+  fill: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.apexcharts-tooltip-text {
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+}
+
+/* Unique Chart Containers */
+.collegeChart {
+  border-left: 4px solid #48BB78;
+  background: linear-gradient(to right, rgba(72,187,120,0.1), transparent);
+}
+
+.engagementChart {
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+}
+
+.revenueChart {
+  border: 2px solid #ED8936;
+  box-shadow: 0 4px 20px rgba(237,137,54,0.2);
+}
+
+.socialChart {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255,255,255,0.02),
+    rgba(255,255,255,0.02) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+.donationsChart {
+  border-bottom: 4px solid #4CA1AF;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+}
+
+.fellowshipsChart {
+  background: radial-gradient(circle at center, rgba(76,161,175,0.1), transparent);
+}
